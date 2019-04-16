@@ -74,6 +74,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps({
   customInputIcon: PropTypes.node,
   customArrowIcon: PropTypes.node,
   customCloseIcon: PropTypes.node,
+  dayCount: PropTypes.node,
   // accessibility
   isFocused: PropTypes.bool,
   // i18n
@@ -326,7 +327,8 @@ function (_ref) {
           block = _this$props7.block,
           small = _this$props7.small,
           regular = _this$props7.regular,
-          verticalSpacing = _this$props7.verticalSpacing;
+          verticalSpacing = _this$props7.verticalSpacing,
+          dayCount = _this$props7.dayCount;
       var startDateString = this.getDateString(startDate);
       var endDateString = this.getDateString(endDate);
       return React.createElement(DateRangePickerInput, {
@@ -367,7 +369,8 @@ function (_ref) {
         block: block,
         small: small,
         regular: regular,
-        verticalSpacing: verticalSpacing
+        verticalSpacing: verticalSpacing,
+        dayCount: dayCount
       }, children);
     }
   }]);

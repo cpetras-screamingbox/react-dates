@@ -96,6 +96,8 @@ var defaultProps = {
   transitionDuration: undefined,
   verticalSpacing: DEFAULT_VERTICAL_SPACING,
   horizontalMonthPadding: undefined,
+  customFooter: null,
+  dayCount: null,
   // navigation related props
   navPrev: null,
   navNext: null,
@@ -443,7 +445,9 @@ function (_ref) {
           horizontalMonthPadding = _this$props7.horizontalMonthPadding,
           small = _this$props7.small,
           disabled = _this$props7.disabled,
-          reactDates = _this$props7.theme.reactDates;
+          reactDates = _this$props7.theme.reactDates,
+          customFooter = _this$props7.customFooter,
+          dayCount = _this$props7.dayCount;
       var _this$state = this.state,
           dayPickerContainerStyles = _this$state.dayPickerContainerStyles,
           isDayPickerFocused = _this$state.isDayPickerFocused,
@@ -509,7 +513,8 @@ function (_ref) {
         verticalHeight: verticalHeight,
         transitionDuration: transitionDuration,
         disabled: disabled,
-        horizontalMonthPadding: horizontalMonthPadding
+        horizontalMonthPadding: horizontalMonthPadding,
+        customFooter: customFooter
       }), withFullScreenPortal && React.createElement("button", _extends({}, css(styles.DateRangePicker_closeButton), {
         type: "button",
         onClick: this.onOutsideClick,
@@ -556,7 +561,8 @@ function (_ref) {
           verticalSpacing = _this$props8.verticalSpacing,
           small = _this$props8.small,
           regular = _this$props8.regular,
-          styles = _this$props8.styles;
+          styles = _this$props8.styles,
+          dayCount = _this$props8.dayCount;
       var isDateRangePickerInputFocused = this.state.isDateRangePickerInputFocused;
       var enableOutsideClick = !withPortal && !withFullScreenPortal;
       var hideFang = verticalSpacing < FANG_HEIGHT_PX;
@@ -601,7 +607,8 @@ function (_ref) {
         block: block,
         small: small,
         regular: regular,
-        verticalSpacing: verticalSpacing
+        verticalSpacing: verticalSpacing,
+        dayCount: dayCount
       }, this.maybeRenderDayPickerWithPortal());
       return React.createElement("div", _extends({
         ref: this.setContainerRef

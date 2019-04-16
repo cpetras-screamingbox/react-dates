@@ -726,6 +726,11 @@
   background-color: #fff;
   display: inline-block
 }
+.DateRangePickerInput_daycount {
+  display: inline-block;
+  margin-right: 8px;
+  vertical-align: middle
+}
 .DateRangePickerInput__disabled {
   background: #f2f2f2
 }

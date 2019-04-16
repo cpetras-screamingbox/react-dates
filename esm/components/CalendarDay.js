@@ -165,7 +165,9 @@ function (_ref) {
           isOutsideRange = _getCalendarDaySettin.isOutsideRange,
           ariaLabel = _getCalendarDaySettin.ariaLabel;
 
-      return React.createElement("td", _extends({}, css(styles.CalendarDay, useDefaultCursor && styles.CalendarDay__defaultCursor, styles.CalendarDay__default, isOutsideDay && styles.CalendarDay__outside, modifiers.has('today') && styles.CalendarDay__today, modifiers.has('first-day-of-week') && styles.CalendarDay__firstDayOfWeek, modifiers.has('last-day-of-week') && styles.CalendarDay__lastDayOfWeek, modifiers.has('hovered-offset') && styles.CalendarDay__hovered_offset, modifiers.has('hovered-start-first-possible-end') && styles.CalendarDay__hovered_start_first_possible_end, modifiers.has('hovered-start-blocked-minimum-nights') && styles.CalendarDay__hovered_start_blocked_min_nights, modifiers.has('highlighted-calendar') && styles.CalendarDay__highlighted_calendar, modifiers.has('blocked-minimum-nights') && styles.CalendarDay__blocked_minimum_nights, modifiers.has('blocked-calendar') && styles.CalendarDay__blocked_calendar, hoveredSpan && styles.CalendarDay__hovered_span, modifiers.has('selected-span') && styles.CalendarDay__selected_span, modifiers.has('selected-start') && styles.CalendarDay__selected_start, modifiers.has('selected-end') && styles.CalendarDay__selected_end, selected && !modifiers.has('selected-span') && styles.CalendarDay__selected, isOutsideRange && styles.CalendarDay__blocked_out_of_range, daySizeStyles), {
+      var isFirstDayOfMonth = moment(day).startOf("month").format("YYYYMMDD") === day.format("YYYYMMDD");
+      var isLastDayOfMonth = moment(day).endOf("month").format("YYYYMMDD") === day.format("YYYYMMDD");
+      return React.createElement("td", _extends({}, css(styles.CalendarDay, useDefaultCursor && styles.CalendarDay__defaultCursor, styles.CalendarDay__default, isOutsideDay && styles.CalendarDay__outside, modifiers.has('today') && styles.CalendarDay__today, modifiers.has('first-day-of-week') && styles.CalendarDay__firstDayOfWeek, modifiers.has('last-day-of-week') && styles.CalendarDay__lastDayOfWeek, modifiers.has('hovered-offset') && styles.CalendarDay__hovered_offset, modifiers.has('hovered-start-first-possible-end') && styles.CalendarDay__hovered_start_first_possible_end, modifiers.has('hovered-start-blocked-minimum-nights') && styles.CalendarDay__hovered_start_blocked_min_nights, modifiers.has('highlighted-calendar') && styles.CalendarDay__highlighted_calendar, modifiers.has('blocked-minimum-nights') && styles.CalendarDay__blocked_minimum_nights, modifiers.has('blocked-calendar') && styles.CalendarDay__blocked_calendar, hoveredSpan && styles.CalendarDay__hovered_span, modifiers.has('selected-span') && styles.CalendarDay__selected_span, modifiers.has('selected-start') && styles.CalendarDay__selected_start, modifiers.has('selected-end') && styles.CalendarDay__selected_end, selected && !modifiers.has('selected-span') && styles.CalendarDay__selected, isOutsideRange && styles.CalendarDay__blocked_out_of_range, daySizeStyles, isFirstDayOfMonth && styles.CalendarDay__firstDayOfMonth, isLastDayOfMonth && styles.CalendarDay__lastDayOfMonth), {
         role: "button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         ,
         ref: this.setButtonRef,
@@ -349,7 +351,9 @@ export default withStyles(function (_ref2) {
     CalendarDay__selected_end: {},
     CalendarDay__today: {},
     CalendarDay__firstDayOfWeek: {},
-    CalendarDay__lastDayOfWeek: {}
+    CalendarDay__lastDayOfWeek: {},
+    CalendarDay__firstDayOfMonth: {},
+    CalendarDay__lastDayOfMonth: {}
   };
 }, {
   pureComponent: typeof React.PureComponent !== 'undefined'

@@ -87,6 +87,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps({
   noBorder: PropTypes.bool,
   verticalBorderSpacing: nonNegativeInteger,
   horizontalMonthPadding: nonNegativeInteger,
+  customFooter: PropTypes.node,
   navPrev: PropTypes.node,
   navNext: PropTypes.node,
   noNavButtons: PropTypes.bool,
@@ -161,6 +162,7 @@ var defaultProps = {
   transitionDuration: undefined,
   verticalBorderSpacing: undefined,
   horizontalMonthPadding: 13,
+  customFooter: null,
   // accessibility
   onBlur: function onBlur() {},
   isFocused: false,
@@ -1261,7 +1263,8 @@ function (_ref) {
           noBorder = _this$props22.noBorder,
           transitionDuration = _this$props22.transitionDuration,
           verticalBorderSpacing = _this$props22.verticalBorderSpacing,
-          horizontalMonthPadding = _this$props22.horizontalMonthPadding;
+          horizontalMonthPadding = _this$props22.horizontalMonthPadding,
+          customFooter = _this$props22.customFooter;
       var _this$state8 = this.state,
           currentMonth = _this$state8.currentMonth,
           phrases = _this$state8.phrases,
@@ -1317,7 +1320,8 @@ function (_ref) {
         verticalBorderSpacing: verticalBorderSpacing,
         noBorder: noBorder,
         transitionDuration: transitionDuration,
-        horizontalMonthPadding: horizontalMonthPadding
+        horizontalMonthPadding: horizontalMonthPadding,
+        customFooter: customFooter
       });
     }
   }]);

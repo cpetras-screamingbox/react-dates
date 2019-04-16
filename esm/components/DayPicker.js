@@ -82,6 +82,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   verticalBorderSpacing: nonNegativeInteger,
   horizontalMonthPadding: nonNegativeInteger,
   renderKeyboardShortcutsButton: PropTypes.func,
+  customFooter: PropTypes.node,
   // navigation props
   disablePrev: PropTypes.bool,
   disableNext: PropTypes.bool,
@@ -140,6 +141,7 @@ export var defaultProps = {
   verticalBorderSpacing: undefined,
   horizontalMonthPadding: 13,
   renderKeyboardShortcutsButton: undefined,
+  customFooter: null,
   // navigation props
   disablePrev: false,
   disableNext: false,
@@ -1018,7 +1020,8 @@ function (_ref) {
           noBorder = _this$props11.noBorder,
           transitionDuration = _this$props11.transitionDuration,
           verticalBorderSpacing = _this$props11.verticalBorderSpacing,
-          horizontalMonthPadding = _this$props11.horizontalMonthPadding;
+          horizontalMonthPadding = _this$props11.horizontalMonthPadding,
+          customFooter = _this$props11.customFooter;
       var dayPickerHorizontalPadding = theme.reactDates.spacing.dayPickerHorizontalPadding;
       var isHorizontal = this.isHorizontal();
       var numOfWeekHeaders = this.isVertical() ? 1 : numberOfMonths;
@@ -1136,7 +1139,7 @@ function (_ref) {
         closeKeyboardShortcutsPanel: this.closeKeyboardShortcutsPanel,
         phrases: phrases,
         renderKeyboardShortcutsButton: renderKeyboardShortcutsButton
-      }))), (calendarInfoPositionBottom || calendarInfoPositionAfter) && calendarInfo));
+      })), customFooter), (calendarInfoPositionBottom || calendarInfoPositionAfter) && calendarInfo));
     }
   }]);
 

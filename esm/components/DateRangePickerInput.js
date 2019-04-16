@@ -63,7 +63,8 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   // describes actual DOM focus
   // i18n
   phrases: PropTypes.shape(getPhrasePropTypes(DateRangePickerInputPhrases)),
-  isRTL: PropTypes.bool
+  isRTL: PropTypes.bool,
+  dayCount: PropTypes.node
 })) : {};;
 var defaultProps = {
   children: null,
@@ -107,7 +108,8 @@ var defaultProps = {
   isFocused: false,
   // i18n
   phrases: DateRangePickerInputPhrases,
-  isRTL: false
+  isRTL: false,
+  dayCount: null
 };
 
 function DateRangePickerInput(_ref) {
@@ -151,7 +153,8 @@ function DateRangePickerInput(_ref) {
       verticalSpacing = _ref.verticalSpacing,
       small = _ref.small,
       regular = _ref.regular,
-      styles = _ref.styles;
+      styles = _ref.styles,
+      dayCount = _ref.dayCount;
   var calendarIcon = customInputIcon || React.createElement(CalendarIcon, css(styles.DateRangePickerInput_calendarIcon_svg));
   var arrowIcon = customArrowIcon || React.createElement(RightArrow, css(styles.DateRangePickerInput_arrow_svg));
   if (isRTL) arrowIcon = React.createElement(LeftArrow, css(styles.DateRangePickerInput_arrow_svg));
@@ -211,7 +214,7 @@ function DateRangePickerInput(_ref) {
     verticalSpacing: verticalSpacing,
     small: small,
     regular: regular
-  }), isEndDateFocused && children, showClearDates && React.createElement("button", _extends({
+  }), dayCount && React.createElement("div", css(styles.DateRangePickerInput_daycount), dayCount), isEndDateFocused && children, showClearDates && React.createElement("button", _extends({
     type: "button",
     "aria-label": phrases.clearDates
   }, css(styles.DateRangePickerInput_clearDates, small && styles.DateRangePickerInput_clearDates__small, !customCloseIcon && styles.DateRangePickerInput_clearDates_default, !(startDate || endDate) && styles.DateRangePickerInput_clearDates__hide), {
@@ -231,6 +234,11 @@ export default withStyles(function (_ref2) {
     DateRangePickerInput: {
       backgroundColor: color.background,
       display: 'inline-block'
+    },
+    DateRangePickerInput_daycount: {
+      display: 'inline-block',
+      marginRight: '8px',
+      verticalAlign: 'middle'
     },
     DateRangePickerInput__disabled: {
       background: color.disabled
