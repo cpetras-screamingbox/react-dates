@@ -72,6 +72,7 @@ const propTypes = forbidExtraProps({
   verticalBorderSpacing: nonNegativeInteger,
   horizontalMonthPadding: nonNegativeInteger,
   renderKeyboardShortcutsButton: PropTypes.func,
+  customFooter: PropTypes.node,
 
   // navigation props
   disablePrev: PropTypes.bool,
@@ -133,6 +134,7 @@ export const defaultProps = {
   verticalBorderSpacing: undefined,
   horizontalMonthPadding: 13,
   renderKeyboardShortcutsButton: undefined,
+  customFooter: null,
 
   // navigation props
   disablePrev: false,
@@ -949,6 +951,7 @@ class DayPicker extends React.PureComponent {
       transitionDuration,
       verticalBorderSpacing,
       horizontalMonthPadding,
+      customFooter,
     } = this.props;
 
     const { reactDates: { spacing: { dayPickerHorizontalPadding } } } = theme;
@@ -1128,6 +1131,7 @@ class DayPicker extends React.PureComponent {
                 />
               )}
             </div>
+            {customFooter}
           </div>
 
           {(calendarInfoPositionBottom || calendarInfoPositionAfter) && calendarInfo}

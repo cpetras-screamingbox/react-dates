@@ -78,6 +78,8 @@ const propTypes = forbidExtraProps({
   phrases: PropTypes.shape(getPhrasePropTypes(DateRangePickerInputPhrases)),
 
   isRTL: PropTypes.bool,
+
+  dayCount: PropTypes.node,
 });
 
 const defaultProps = {
@@ -128,6 +130,8 @@ const defaultProps = {
   phrases: DateRangePickerInputPhrases,
 
   isRTL: false,
+
+  dayCount: null,
 };
 
 function DateRangePickerInput({
@@ -172,6 +176,7 @@ function DateRangePickerInput({
   small,
   regular,
   styles,
+  dayCount,
 }) {
   const calendarIcon = customInputIcon || (
     <CalendarIcon {...css(styles.DateRangePickerInput_calendarIcon_svg)} />
@@ -277,6 +282,16 @@ function DateRangePickerInput({
         regular={regular}
       />
 
+      {dayCount && (
+        <div
+          {...css(
+            styles.DateRangePickerInput_daycount,
+          )}
+        >
+          {dayCount}
+        </div>
+      )}
+
       {isEndDateFocused && children}
 
       {showClearDates && (
@@ -308,6 +323,12 @@ export default withStyles(({ reactDates: { border, color, sizing } }) => ({
   DateRangePickerInput: {
     backgroundColor: color.background,
     display: 'inline-block',
+  },
+
+  DateRangePickerInput_daycount: {
+    display: 'inline-block',
+    marginRight: '8px',
+    verticalAlign: 'middle',
   },
 
   DateRangePickerInput__disabled: {

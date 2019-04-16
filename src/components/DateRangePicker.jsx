@@ -95,6 +95,8 @@ const defaultProps = {
   transitionDuration: undefined,
   verticalSpacing: DEFAULT_VERTICAL_SPACING,
   horizontalMonthPadding: undefined,
+  customFooter: null,
+  dayCount: null,
 
   // navigation related props
   navPrev: null,
@@ -436,6 +438,8 @@ class DateRangePicker extends React.PureComponent {
       small,
       disabled,
       theme: { reactDates },
+      customFooter,
+      dayCount,
     } = this.props;
 
     const { dayPickerContainerStyles, isDayPickerFocused, showKeyboardShortcuts } = this.state;
@@ -521,8 +525,8 @@ class DateRangePicker extends React.PureComponent {
           transitionDuration={transitionDuration}
           disabled={disabled}
           horizontalMonthPadding={horizontalMonthPadding}
+          customFooter={customFooter}
         />
-
         {withFullScreenPortal && (
           <button
             {...css(styles.DateRangePicker_closeButton)}
@@ -576,6 +580,7 @@ class DateRangePicker extends React.PureComponent {
       small,
       regular,
       styles,
+      dayCount,
     } = this.props;
 
     const { isDateRangePickerInputFocused } = this.state;
@@ -627,6 +632,7 @@ class DateRangePicker extends React.PureComponent {
         small={small}
         regular={regular}
         verticalSpacing={verticalSpacing}
+        dayCount={dayCount}
       >
         {this.maybeRenderDayPickerWithPortal()}
       </DateRangePickerInputController>

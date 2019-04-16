@@ -73,6 +73,7 @@ const propTypes = forbidExtraProps({
   customInputIcon: PropTypes.node,
   customArrowIcon: PropTypes.node,
   customCloseIcon: PropTypes.node,
+  dayCount: PropTypes.node,
 
   // accessibility
   isFocused: PropTypes.bool,
@@ -302,6 +303,7 @@ export default class DateRangePickerInputController extends React.PureComponent 
       small,
       regular,
       verticalSpacing,
+      dayCount,
     } = this.props;
 
     const startDateString = this.getDateString(startDate);
@@ -347,6 +349,7 @@ export default class DateRangePickerInputController extends React.PureComponent 
         small={small}
         regular={regular}
         verticalSpacing={verticalSpacing}
+        dayCount={dayCount}
       >
         {children}
       </DateRangePickerInput>

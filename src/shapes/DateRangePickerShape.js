@@ -75,6 +75,8 @@ export default {
   transitionDuration: nonNegativeInteger,
   verticalSpacing: nonNegativeInteger,
   horizontalMonthPadding: nonNegativeInteger,
+  customFooter: PropTypes.node,
+  dayCount: PropTypes.node,
 
   // navigation related props
   navPrev: PropTypes.node,
