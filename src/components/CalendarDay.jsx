@@ -115,6 +115,9 @@ class CalendarDay extends React.PureComponent {
       ariaLabel,
     } = getCalendarDaySettings(day, ariaLabelFormat, daySize, modifiers, phrases);
 
+    const isFirstDayOfMonth = moment(day).startOf("month").format("YYYYMMDD") === day.format("YYYYMMDD")
+    const isLastDayOfMonth = moment(day).endOf("month").format("YYYYMMDD") === day.format("YYYYMMDD")
+
     return (
       <td
         {...css(
@@ -138,6 +141,8 @@ class CalendarDay extends React.PureComponent {
           selected && !modifiers.has('selected-span') && styles.CalendarDay__selected,
           isOutsideRange && styles.CalendarDay__blocked_out_of_range,
           daySizeStyles,
+          isFirstDayOfMonth && styles.CalendarDay__firstDayOfMonth,
+          isLastDayOfMonth && styles.CalendarDay__lastDayOfMonth,
         )}
         role="button" // eslint-disable-line jsx-a11y/no-noninteractive-element-to-interactive-role
         ref={this.setButtonRef}
@@ -340,4 +345,6 @@ export default withStyles(({ reactDates: { color, font } }) => ({
   CalendarDay__today: {},
   CalendarDay__firstDayOfWeek: {},
   CalendarDay__lastDayOfWeek: {},
+  CalendarDay__firstDayOfMonth: {},
+  CalendarDay__lastDayOfMonth: {},
 }), { pureComponent: typeof React.PureComponent !== 'undefined' })(CalendarDay);
