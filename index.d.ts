@@ -174,6 +174,7 @@ declare namespace ReactDates {
         regular?: boolean;
         verticalSpacing?: number;
         keepFocusOnInput?: boolean;
+        onKeyDown?: any
 
         // calendar presentation and interaction related props
         renderMonthText?: (day: momentPropTypes.momentObj) => string | JSX.Element;
