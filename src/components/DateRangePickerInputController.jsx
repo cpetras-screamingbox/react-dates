@@ -69,6 +69,7 @@ const propTypes = forbidExtraProps({
   onDatesChange: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
+  onKeyDown: PropTypes.func,
 
   customInputIcon: PropTypes.node,
   customArrowIcon: PropTypes.node,
@@ -126,6 +127,7 @@ const defaultProps = {
   onDatesChange() {},
   onKeyDownArrowDown() {},
   onKeyDownQuestionMark() {},
+  onKeyDown: null,
 
   customInputIcon: null,
   customArrowIcon: null,
@@ -304,6 +306,7 @@ export default class DateRangePickerInputController extends React.PureComponent 
       regular,
       verticalSpacing,
       dayCount,
+      onKeyDown,
     } = this.props;
 
     const startDateString = this.getDateString(startDate);
@@ -341,6 +344,7 @@ export default class DateRangePickerInputController extends React.PureComponent 
         showClearDates={showClearDates}
         onClearDates={this.clearDates}
         screenReaderMessage={screenReaderMessage}
+        onKeyDown={onKeyDown}
         onKeyDownArrowDown={onKeyDownArrowDown}
         onKeyDownQuestionMark={onKeyDownQuestionMark}
         isRTL={isRTL}

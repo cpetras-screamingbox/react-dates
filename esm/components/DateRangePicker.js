@@ -119,6 +119,7 @@ var defaultProps = {
   isDayHighlighted: function isDayHighlighted() {
     return false;
   },
+  onKeyDown: null,
   // internationalization
   displayFormat: function displayFormat() {
     return moment.localeData().longDateFormat('L');
@@ -562,7 +563,8 @@ function (_ref) {
           small = _this$props8.small,
           regular = _this$props8.regular,
           styles = _this$props8.styles,
-          dayCount = _this$props8.dayCount;
+          dayCount = _this$props8.dayCount,
+          onKeyDown = _this$props8.onKeyDown;
       var isDateRangePickerInputFocused = this.state.isDateRangePickerInputFocused;
       var enableOutsideClick = !withPortal && !withFullScreenPortal;
       var hideFang = verticalSpacing < FANG_HEIGHT_PX;
@@ -596,6 +598,7 @@ function (_ref) {
         withFullScreenPortal: withFullScreenPortal,
         onDatesChange: onDatesChange,
         onFocusChange: this.onDateRangePickerInputFocus,
+        onKeyDown: onKeyDown,
         onKeyDownArrowDown: this.onDayPickerFocus,
         onKeyDownQuestionMark: this.showKeyboardShortcutsPanel,
         onClose: onClose,

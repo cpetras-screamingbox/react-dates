@@ -46,6 +46,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   onChange: PropTypes.func,
   onClearDate: PropTypes.func,
   onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onKeyDownShiftTab: PropTypes.func,
   onKeyDownTab: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
@@ -84,6 +85,7 @@ var defaultProps = {
   onKeyDownTab: function onKeyDownTab() {},
   onKeyDownArrowDown: function onKeyDownArrowDown() {},
   onKeyDownQuestionMark: function onKeyDownQuestionMark() {},
+  onKeyDown: null,
   // i18n
   phrases: SingleDatePickerInputPhrases
 };
@@ -121,7 +123,8 @@ function SingleDatePickerInput(_ref) {
       small = _ref.small,
       regular = _ref.regular,
       verticalSpacing = _ref.verticalSpacing,
-      styles = _ref.styles;
+      styles = _ref.styles,
+      onKeyDown = _ref.onKeyDown;
   var calendarIcon = customInputIcon || React.createElement(CalendarIcon, css(styles.SingleDatePickerInput_calendarIcon_svg));
   var closeIcon = customCloseIcon || React.createElement(CloseButton, css(styles.SingleDatePickerInput_clearDate_svg, small && styles.SingleDatePickerInput_clearDate_svg__small));
   var screenReaderText = screenReaderMessage || phrases.keyboardNavigationInstructions;
@@ -145,6 +148,7 @@ function SingleDatePickerInput(_ref) {
     showCaret: showCaret,
     onChange: onChange,
     onFocus: onFocus,
+    onKeyDown: onKeyDown,
     onKeyDownShiftTab: onKeyDownShiftTab,
     onKeyDownTab: onKeyDownTab,
     onKeyDownArrowDown: onKeyDownArrowDown,

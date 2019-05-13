@@ -58,6 +58,7 @@ export default {
   verticalHeight: nonNegativeInteger,
   transitionDuration: nonNegativeInteger,
   horizontalMonthPadding: nonNegativeInteger,
+  onKeyDown: PropTypes.func,
   // navigation related props
   navPrev: PropTypes.node,
   navNext: PropTypes.node,

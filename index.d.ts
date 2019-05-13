@@ -100,6 +100,7 @@ declare namespace ReactDates {
         verticalSpacing?: number;
         customFooter?: string | JSX.Element;
         dayCount?: string | JSX.Element;
+        onKeyDown?: any
 
         // navigation related props
         navPrev?: string | JSX.Element;

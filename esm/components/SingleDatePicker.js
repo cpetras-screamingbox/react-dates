@@ -110,6 +110,7 @@ var defaultProps = {
     return !isInclusivelyAfterDay(day, moment());
   },
   isDayHighlighted: function isDayHighlighted() {},
+  onKeyDown: null,
   // internationalization props
   displayFormat: function displayFormat() {
     return moment.localeData().longDateFormat('L');
@@ -530,7 +531,8 @@ function (_ref) {
           reopenPickerOnClearDate = _this$props7.reopenPickerOnClearDate,
           keepOpenOnDateSelect = _this$props7.keepOpenOnDateSelect,
           styles = _this$props7.styles,
-          isOutsideRange = _this$props7.isOutsideRange;
+          isOutsideRange = _this$props7.isOutsideRange,
+          onKeyDown = _this$props7.onKeyDown;
       var isInputFocused = this.state.isInputFocused;
       var enableOutsideClick = !withPortal && !withFullScreenPortal;
       var hideFang = verticalSpacing < FANG_HEIGHT_PX;
@@ -555,6 +557,7 @@ function (_ref) {
         onDateChange: onDateChange,
         displayFormat: displayFormat,
         onFocusChange: this.onInputFocus,
+        onKeyDown: onKeyDown,
         onKeyDownArrowDown: this.onDayPickerFocus,
         onKeyDownQuestionMark: this.showKeyboardShortcutsPanel,
         screenReaderMessage: screenReaderInputMessage,

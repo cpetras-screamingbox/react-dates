@@ -71,6 +71,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps({
   onDatesChange: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
+  onKeyDown: PropTypes.func,
   customInputIcon: PropTypes.node,
   customArrowIcon: PropTypes.node,
   customCloseIcon: PropTypes.node,
@@ -122,6 +123,7 @@ var defaultProps = {
   onDatesChange: function onDatesChange() {},
   onKeyDownArrowDown: function onKeyDownArrowDown() {},
   onKeyDownQuestionMark: function onKeyDownQuestionMark() {},
+  onKeyDown: null,
   customInputIcon: null,
   customArrowIcon: null,
   customCloseIcon: null,
@@ -328,7 +330,8 @@ function (_ref) {
           small = _this$props7.small,
           regular = _this$props7.regular,
           verticalSpacing = _this$props7.verticalSpacing,
-          dayCount = _this$props7.dayCount;
+          dayCount = _this$props7.dayCount,
+          onKeyDown = _this$props7.onKeyDown;
       var startDateString = this.getDateString(startDate);
       var endDateString = this.getDateString(endDate);
       return React.createElement(DateRangePickerInput, {
@@ -362,6 +365,7 @@ function (_ref) {
         showClearDates: showClearDates,
         onClearDates: this.clearDates,
         screenReaderMessage: screenReaderMessage,
+        onKeyDown: onKeyDown,
         onKeyDownArrowDown: onKeyDownArrowDown,
         onKeyDownQuestionMark: onKeyDownQuestionMark,
         isRTL: isRTL,

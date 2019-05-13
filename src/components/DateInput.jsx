@@ -45,6 +45,7 @@ const propTypes = forbidExtraProps({
   onFocus: PropTypes.func,
   onKeyDownShiftTab: PropTypes.func,
   onKeyDownTab: PropTypes.func,
+  onKeyDown: PropTypes.func,
 
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
@@ -73,6 +74,7 @@ const defaultProps = {
   onFocus() {},
   onKeyDownShiftTab() {},
   onKeyDownTab() {},
+  onKeyDown: null,
 
   onKeyDownArrowDown() {},
   onKeyDownQuestionMark() {},
@@ -133,7 +135,17 @@ class DateInput extends React.PureComponent {
   }
 
   onKeyDown(e) {
+    console.log("::onKeyDown()")
+    const { onKeyDown } = this.props
+    console.log(onKeyDown)
+    console.log(e)
     e.stopPropagation();
+    if (typeof onKeyDown === "function") {
+      onKeyDown(e)
+    }
+    if (e.defaultPrevented) {
+      return
+    }
     if (!MODIFIER_KEY_NAMES.has(e.key)) {
       this.throttledKeyDown(e);
     }

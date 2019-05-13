@@ -116,6 +116,7 @@ const defaultProps = {
   isDayBlocked: () => false,
   isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
   isDayHighlighted: () => false,
+  onKeyDown: null,
 
   // internationalization
   displayFormat: () => moment.localeData().longDateFormat('L'),
@@ -581,6 +582,7 @@ class DateRangePicker extends React.PureComponent {
       regular,
       styles,
       dayCount,
+      onKeyDown,
     } = this.props;
 
     const { isDateRangePickerInputFocused } = this.state;
@@ -620,6 +622,7 @@ class DateRangePicker extends React.PureComponent {
         withFullScreenPortal={withFullScreenPortal}
         onDatesChange={onDatesChange}
         onFocusChange={this.onDateRangePickerInputFocus}
+        onKeyDown={onKeyDown}
         onKeyDownArrowDown={this.onDayPickerFocus}
         onKeyDownQuestionMark={this.showKeyboardShortcutsPanel}
         onClose={onClose}

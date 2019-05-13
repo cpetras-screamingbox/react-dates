@@ -48,6 +48,7 @@ const propTypes = forbidExtraProps({
   onClearDates: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
+  onKeyDown: PropTypes.func,
 
   startDate: PropTypes.string,
   endDate: PropTypes.string,
@@ -177,6 +178,7 @@ function DateRangePickerInput({
   regular,
   styles,
   dayCount,
+  onKeyDown,
 }) {
   const calendarIcon = customInputIcon || (
     <CalendarIcon {...css(styles.DateRangePickerInput_calendarIcon_svg)} />
@@ -239,6 +241,7 @@ function DateRangePickerInput({
         openDirection={openDirection}
         onChange={onStartDateChange}
         onFocus={onStartDateFocus}
+        onKeyDown={onKeyDown}
         onKeyDownShiftTab={onStartDateShiftTab}
         onKeyDownArrowDown={onKeyDownArrowDown}
         onKeyDownQuestionMark={onKeyDownQuestionMark}
@@ -274,6 +277,7 @@ function DateRangePickerInput({
         openDirection={openDirection}
         onChange={onEndDateChange}
         onFocus={onEndDateFocus}
+        onKeyDown={onKeyDown}
         onKeyDownArrowDown={onKeyDownArrowDown}
         onKeyDownQuestionMark={onKeyDownQuestionMark}
         onKeyDownTab={onEndDateTab}

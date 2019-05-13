@@ -61,6 +61,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps({
   isOutsideRange: PropTypes.func,
   displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   onClose: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
   customInputIcon: PropTypes.node,
@@ -102,6 +103,7 @@ var defaultProps = {
   onClose: function onClose() {},
   onKeyDownArrowDown: function onKeyDownArrowDown() {},
   onKeyDownQuestionMark: function onKeyDownQuestionMark() {},
+  onKeyDown: null,
   customInputIcon: null,
   customCloseIcon: null,
   // accessibility
@@ -254,7 +256,8 @@ function (_ref) {
           block = _this$props5.block,
           small = _this$props5.small,
           regular = _this$props5.regular,
-          verticalSpacing = _this$props5.verticalSpacing;
+          verticalSpacing = _this$props5.verticalSpacing,
+          onKeyDown = _this$props5.onKeyDown;
       var displayValue = this.getDateString(date);
       return React.createElement(SingleDatePickerInput, {
         id: id,
@@ -276,6 +279,7 @@ function (_ref) {
         displayValue: displayValue,
         onChange: this.onChange,
         onFocus: this.onFocus,
+        onKeyDown: onKeyDown,
         onKeyDownShiftTab: this.onClearFocus,
         onKeyDownArrowDown: onKeyDownArrowDown,
         onKeyDownQuestionMark: onKeyDownQuestionMark,

@@ -58,6 +58,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   onFocus: PropTypes.func,
   onKeyDownShiftTab: PropTypes.func,
   onKeyDownTab: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
   // accessibility
@@ -83,6 +84,7 @@ var defaultProps = {
   onFocus: function onFocus() {},
   onKeyDownShiftTab: function onKeyDownShiftTab() {},
   onKeyDownTab: function onKeyDownTab() {},
+  onKeyDown: null,
   onKeyDownArrowDown: function onKeyDownArrowDown() {},
   onKeyDownQuestionMark: function onKeyDownQuestionMark() {},
   // accessibility
@@ -173,7 +175,19 @@ function (_ref) {
   }, {
     key: "onKeyDown",
     value: function onKeyDown(e) {
+      console.log("::onKeyDown()");
+      var onKeyDown = this.props.onKeyDown;
+      console.log(onKeyDown);
+      console.log(e);
       e.stopPropagation();
+
+      if (typeof onKeyDown === "function") {
+        onKeyDown(e);
+      }
+
+      if (e.defaultPrevented) {
+        return;
+      }
 
       if (!MODIFIER_KEY_NAMES.has(e.key)) {
         this.throttledKeyDown(e);

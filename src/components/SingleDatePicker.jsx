@@ -107,6 +107,7 @@ const defaultProps = {
   isDayBlocked: () => false,
   isOutsideRange: day => !isInclusivelyAfterDay(day, moment()),
   isDayHighlighted: () => {},
+  onKeyDown: null,
 
   // internationalization props
   displayFormat: () => moment.localeData().longDateFormat('L'),
@@ -550,6 +551,7 @@ class SingleDatePicker extends React.PureComponent {
       keepOpenOnDateSelect,
       styles,
       isOutsideRange,
+      onKeyDown,
     } = this.props;
 
     const { isInputFocused } = this.state;
@@ -580,6 +582,7 @@ class SingleDatePicker extends React.PureComponent {
         onDateChange={onDateChange}
         displayFormat={displayFormat}
         onFocusChange={this.onInputFocus}
+        onKeyDown={onKeyDown}
         onKeyDownArrowDown={this.onDayPickerFocus}
         onKeyDownQuestionMark={this.showKeyboardShortcutsPanel}
         screenReaderMessage={screenReaderInputMessage}

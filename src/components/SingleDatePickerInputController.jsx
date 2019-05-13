@@ -57,6 +57,7 @@ const propTypes = forbidExtraProps({
   displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 
   onClose: PropTypes.func,
+  onKeyDown: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
 
@@ -103,6 +104,7 @@ const defaultProps = {
   onClose() {},
   onKeyDownArrowDown() {},
   onKeyDownQuestionMark() {},
+  onKeyDown: null,
 
   customInputIcon: null,
   customCloseIcon: null,
@@ -223,6 +225,7 @@ export default class SingleDatePickerInputController extends React.PureComponent
       small,
       regular,
       verticalSpacing,
+      onKeyDown,
     } = this.props;
 
     const displayValue = this.getDateString(date);
@@ -248,6 +251,7 @@ export default class SingleDatePickerInputController extends React.PureComponent
         displayValue={displayValue}
         onChange={this.onChange}
         onFocus={this.onFocus}
+        onKeyDown={onKeyDown}
         onKeyDownShiftTab={this.onClearFocus}
         onKeyDownArrowDown={onKeyDownArrowDown}
         onKeyDownQuestionMark={onKeyDownQuestionMark}

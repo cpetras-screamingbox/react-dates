@@ -38,6 +38,7 @@ var propTypes = process.env.NODE_ENV !== "production" ? forbidExtraProps(_object
   onClearDates: PropTypes.func,
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
+  onKeyDown: PropTypes.func,
   startDate: PropTypes.string,
   endDate: PropTypes.string,
   isStartDateFocused: PropTypes.bool,
@@ -154,7 +155,8 @@ function DateRangePickerInput(_ref) {
       small = _ref.small,
       regular = _ref.regular,
       styles = _ref.styles,
-      dayCount = _ref.dayCount;
+      dayCount = _ref.dayCount,
+      onKeyDown = _ref.onKeyDown;
   var calendarIcon = customInputIcon || React.createElement(CalendarIcon, css(styles.DateRangePickerInput_calendarIcon_svg));
   var arrowIcon = customArrowIcon || React.createElement(RightArrow, css(styles.DateRangePickerInput_arrow_svg));
   if (isRTL) arrowIcon = React.createElement(LeftArrow, css(styles.DateRangePickerInput_arrow_svg));
@@ -184,6 +186,7 @@ function DateRangePickerInput(_ref) {
     openDirection: openDirection,
     onChange: onStartDateChange,
     onFocus: onStartDateFocus,
+    onKeyDown: onKeyDown,
     onKeyDownShiftTab: onStartDateShiftTab,
     onKeyDownArrowDown: onKeyDownArrowDown,
     onKeyDownQuestionMark: onKeyDownQuestionMark,
@@ -208,6 +211,7 @@ function DateRangePickerInput(_ref) {
     openDirection: openDirection,
     onChange: onEndDateChange,
     onFocus: onEndDateFocus,
+    onKeyDown: onKeyDown,
     onKeyDownArrowDown: onKeyDownArrowDown,
     onKeyDownQuestionMark: onKeyDownQuestionMark,
     onKeyDownTab: onEndDateTab,
