@@ -135,10 +135,7 @@ class DateInput extends React.PureComponent {
   }
 
   onKeyDown(e) {
-    console.log("::onKeyDown()")
     const { onKeyDown } = this.props
-    console.log(onKeyDown)
-    console.log(e)
     e.stopPropagation();
     if (typeof onKeyDown === "function") {
       onKeyDown(e)

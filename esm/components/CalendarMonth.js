@@ -213,7 +213,7 @@ function (_ref) {
         onMonthSelect: onMonthSelect,
         onYearSelect: onYearSelect,
         isVisible: isVisible
-      }) : React.createElement("strong", null, monthTitle)), React.createElement("table", _extends({}, css(!verticalBorderSpacing && styles.CalendarMonth_table, verticalBorderSpacing && styles.CalendarMonth_verticalSpacing, verticalBorderSpacing && {
+      }) : monthTitle), React.createElement("table", _extends({}, css(!verticalBorderSpacing && styles.CalendarMonth_table, verticalBorderSpacing && styles.CalendarMonth_verticalSpacing, verticalBorderSpacing && {
         borderSpacing: "0px ".concat(verticalBorderSpacing, "px")
       }), {
         role: "presentation"

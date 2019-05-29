@@ -203,11 +203,8 @@ class CalendarMonth extends React.PureComponent {
               onYearSelect,
               isVisible,
             })
-          ) : (
-            <strong>
-              {monthTitle}
-            </strong>
-          )}
+          ) : monthTitle
+          }
         </div>
 
         <table
